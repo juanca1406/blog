@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-
+use App\Models\curso;
+use App\Models\user;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,7 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(){
     
-        $this->call(Cursoseeder::class);
+        //$this->call(Cursoseeder::class)
+        user::factory(50)->create();
+        curso::factory(50)->create();
         // para conectar cursoseeder
     }
 }
