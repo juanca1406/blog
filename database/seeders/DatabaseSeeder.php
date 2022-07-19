@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
     public function run(){
     
         //$this->call(Cursoseeder::class)
-        user::factory(10)->create();
         Curso::factory(50)->create();
         // para conectar cursoseeder
     }

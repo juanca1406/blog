@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable
 {
@@ -41,4 +42,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //colocar esto importante
+    protected function name(): Attribute
+    {
+        return new Attribute(
+            //que me ponga las primeras letras en mayuscula
+            //funcion mas corto
+            get: fn($value) => ucwords($value),
+
+            set: function($value){
+                //funcion mas larga
+                //transforma este valor en minusculas
+                return strtolower($value);
+            }
+        );
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class cursocontroller extends Controller
 {
+    //esta en resources\views\
     public function index(){
         return view('curso.index');
     }
